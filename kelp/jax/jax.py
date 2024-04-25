@@ -1,8 +1,13 @@
 import numpy as np
 from numpy import pi as pi64
 from jax import numpy as jnp
-from jax.config import config
-config.update('jax_enable_x64', True)
+#from jax.config import config          # I think this way of enabling 64-bit precision in deprecated in jax
+#config.update('jax_enable_x64', True)
+# New way of enabling 64-bit precision (from jaxoplanet tutorial example)
+import jax
+jax.config.update(
+    "jax_enable_x64", True
+)  # For 64-bit precision since JAX defaults to 32-bit
 
 __all__ = [
     'thermal_phase_curve',
